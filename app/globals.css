@@ -3,19 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
+    --background-gradient: linear-gradient(180deg, #ffffff, #C77EEF);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
+.dark {
+    --background: #010101;
     --foreground: #ededed;
-  }
+    --background-gradient: linear-gradient(0deg, #3E025F, #000000);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--foreground);
+    background: var(--background-gradient);
+    font-family: system-ui, sans-serif;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    min-height: 100vh;
+    margin: 0;
+}
+
+html {
+    @apply scroll-smooth;
+}
+
+/* styles/globals.css */
+@keyframes neon-glow {
+    0% {
+        box-shadow: 0 0 5px rgba(138, 43, 226, 0.5), 0 0 10px rgba(138, 43, 226, 0.5), 0 0 15px rgba(138, 43, 226, 0.5),
+            0 0 20px rgba(138, 43, 226, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 10px rgba(138, 43, 226, 1), 0 0 20px rgba(138, 43, 226, 1), 0 0 30px rgba(138, 43, 226, 1),
+            0 0 40px rgba(138, 43, 226, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(138, 43, 226, 0.5), 0 0 10px rgba(138, 43, 226, 0.5), 0 0 15px rgba(138, 43, 226, 0.5),
+            0 0 20px rgba(138, 43, 226, 0.5);
+    }
+}
+
+.animate-neon {
+    animation: neon-glow 1.5s infinite alternate;
 }
