@@ -5,17 +5,21 @@ import { Key } from 'lucide-react';
 import ThemeToggle from '@/components/common/ThemeToggle';
 import { TbLockPassword } from 'react-icons/tb';
 import { FaChevronDown, FaChevronUp, FaUserCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const navListMenuItems = [
     {
         title: 'Passwords',
         description: 'Find the perfect solution for your needs.',
         icon: TbLockPassword,
+        url: 'dashboard/passwords',
     },
     {
         title: 'Password Generator',
         description: 'Generate strong passwords.',
         icon: TbLockPassword,
+        url: 'dashboard/generate-password',
     },
 ];
 
@@ -33,16 +37,18 @@ function NavListMenu() {
             {isMenuOpen && (
                 <div className="absolute left-0 mt-2 w-60 rounded-lg bg-white dark:bg-neutral-900 shadow-lg z-10">
                     <ul className="py-2">
-                        {navListMenuItems.map(({ icon: Icon, title, description }, index) => (
-                            <a key={index} href="#" className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center gap-3">
-                                <div className="rounded-lg bg-gray-100 dark:bg-neutral-800 p-2">
-                                    <Icon className="h-5 w-5 text-gray-900 dark:text-white" />
+                        {navListMenuItems.map(({ icon: Icon, title, description, url }, index) => (
+                            <Link key={index} href={url} passHref>
+                                <div className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center gap-3">
+                                    <div className="rounded-lg bg-gray-100 dark:bg-neutral-800 p-2">
+                                        <Icon className="h-5 w-5 text-gray-900 dark:text-white" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-gray-900 dark:text-white">{title}</h3>
+                                        <p className="text-xs text-gray-500 dark:text-neutral-400">{description}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 dark:text-white">{title}</h3>
-                                    <p className="text-xs text-gray-500 dark:text-neutral-400">{description}</p>
-                                </div>
-                            </a>
+                            </Link>
                         ))}
                     </ul>
                 </div>
@@ -52,6 +58,7 @@ function NavListMenu() {
 }
 
 export default function MegaMenuDashboard() {
+    const router = useRouter();
     const handleLogout = useCallback(async () => {
         try {
             const token =
@@ -60,7 +67,7 @@ export default function MegaMenuDashboard() {
                     : null;
 
             if (!token) {
-                console.warn('No token found');
+                console.warn('No Authorization');
                 return;
             }
 
@@ -73,12 +80,11 @@ export default function MegaMenuDashboard() {
             });
 
             if (response.ok) {
-                console.log('Logout successful');
                 localStorage.removeItem('authToken');
                 sessionStorage.removeItem('authToken');
-                window.location.href = '/login'; // Redirige al login
+                router.push('/');
             } else {
-                console.error('Logout failed', await response.text());
+                console.error('Logout failed');
             }
         } catch (error) {
             console.error('Error during logout:', error);

@@ -8,7 +8,7 @@ export default function useAuth() {
         const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
 
         if (!token) {
-            router.replace('/login');
+            router.replace('/');
         }
     }, [router]);
 }
