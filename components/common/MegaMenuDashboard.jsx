@@ -13,13 +13,13 @@ const navListMenuItems = [
         title: 'Passwords',
         description: 'Find the perfect solution for your needs.',
         icon: TbLockPassword,
-        url: 'dashboard/passwords',
+        url: '/dashboard/passwords', // corregir errores de direccionamiento
     },
     {
         title: 'Password Generator',
         description: 'Generate strong passwords.',
         icon: TbLockPassword,
-        url: 'dashboard/generate-password', // corregir errores de direccionamiento
+        url: '/dashboard/generate-password', // corregir errores de direccionamiento
     },
 ];
 
