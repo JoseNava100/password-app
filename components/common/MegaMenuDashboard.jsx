@@ -19,7 +19,7 @@ const navListMenuItems = [
         title: 'Password Generator',
         description: 'Generate strong passwords.',
         icon: TbLockPassword,
-        url: 'dashboard/generate-password',
+        url: 'dashboard/generate-password', // corregir errores de direccionamiento
     },
 ];
 

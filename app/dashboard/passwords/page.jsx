@@ -1,6 +1,7 @@
 'use client';
 
 import MegaMenuDashboard from "@/components/common/MegaMenuDashboard";
+import TableDashboard from "@/components/dashboard/TableDashboard";
 import useAuth from '@/hooks/useAuth';
 
 export default function PasswordsPage() {
@@ -8,7 +9,7 @@ export default function PasswordsPage() {
     return (
         <section>
             <MegaMenuDashboard />
-            <h1>Tabla aqui</h1>
+            <TableDashboard />
         </section>
     );
 }
