@@ -1,7 +1,7 @@
 'use client';
 
 import MegaMenuDashboard from "@/components/common/MegaMenuDashboard";
-import TableDashboard from "@/components/dashboard/TableDashboard";
+import TableDashboard from "@/components/dashboard/TablePassowds";
 import useAuth from '@/hooks/useAuth';
 
 export default function PasswordsPage() {

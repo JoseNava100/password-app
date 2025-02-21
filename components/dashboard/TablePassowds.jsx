@@ -23,7 +23,7 @@ export default function TableDashboard() {
             <div className="w-full max-w-5xl bg-purple-100 dark:bg-neutral-900 shadow-lg rounded-lg p-6">
                 <div className="flex justify-between items-center mb-4">
                     <div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-purple-200">Table Passwords</h2>
+                        <h2 className="text-3xl font-extrabold text-gray-900 dark:text-gray-200">Table Passwords</h2>
                         <p className="text-neutral-600 dark:text-purple-400">Manage your saved passwords securely.</p>
                     </div>
                     <button className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">

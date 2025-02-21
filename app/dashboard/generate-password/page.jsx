@@ -1,6 +1,7 @@
 'use client';
 
 import MegaMenuDashboard from "@/components/common/MegaMenuDashboard";
+import GeneratePassword from "@/components/dashboard/GeneratePassword";
 import useAuth from '@/hooks/useAuth';
 
 export default function PasswordsPage() {
@@ -9,7 +10,7 @@ export default function PasswordsPage() {
     return (
         <section>
             <MegaMenuDashboard />
-            <h1>generar constraseña</h1>
+            <GeneratePassword />
         </section>
     );
 }

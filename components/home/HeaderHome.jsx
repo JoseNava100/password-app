@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Key } from "lucide-react";
+import { GiHouseKeys } from "react-icons/gi";
 import ThemeToggle from "@/components/common/ThemeToggle";
 
 export default function Header() {
@@ -7,7 +7,7 @@ export default function Header() {
         <header className="w-full px-4 py-2 border-b border-purple-300 dark:border-purple-800 bg-white dark:bg-neutral-900 shadow-md rounded-lg mx-auto max-w-lg mt-4">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <Key className="size-5 text-gray-800 dark:text-white" />
+                    <GiHouseKeys className="size-5 text-gray-800 dark:text-white" />
                     <h1 className="text-base font-semibold text-gray-900 dark:text-white">
                         Password Manager
                     </h1>

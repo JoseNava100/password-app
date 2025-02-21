@@ -1,25 +1,26 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { Key } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import ThemeToggle from '@/components/common/ThemeToggle';
 import { TbLockPassword } from 'react-icons/tb';
+import { IoKeyOutline } from "react-icons/io5";
+import { GiHouseKeys } from "react-icons/gi";
 import { FaChevronDown, FaChevronUp, FaUserCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import useLogout from '@/hooks/useLogout';  
 
 const navListMenuItems = [
     {
         title: 'Passwords',
         description: 'Find the perfect solution for your needs.',
         icon: TbLockPassword,
-        url: '/dashboard/passwords', 
+        url: '/dashboard/passwords',
     },
     {
         title: 'Password Generator',
         description: 'Generate strong passwords.',
-        icon: TbLockPassword,
-        url: '/dashboard/generate-password', 
+        icon: IoKeyOutline,
+        url: '/dashboard/generate-password',
     },
 ];
 
@@ -58,44 +59,13 @@ function NavListMenu() {
 }
 
 export default function MegaMenuDashboard() {
-    const router = useRouter();
-    const handleLogout = useCallback(async () => {
-        try {
-            const token =
-                typeof window !== 'undefined'
-                    ? localStorage.getItem('authToken') || sessionStorage.getItem('authToken')
-                    : null;
-
-            if (!token) {
-                console.warn('No Authorization');
-                return;
-            }
-
-            const response = await fetch('http://localhost:8000/api/logout', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-            });
-
-            if (response.ok) {
-                localStorage.removeItem('authToken');
-                sessionStorage.removeItem('authToken');
-                router.push('/');
-            } else {
-                console.error('Logout failed');
-            }
-        } catch (error) {
-            console.error('Error during logout:', error);
-        }
-    }, []);
+    const handleLogout = useLogout();
 
     return (
         <header className="w-full px-4 py-2 border-b border-purple-300 dark:border-purple-800 bg-white dark:bg-neutral-900 shadow-md rounded-lg mx-auto max-w-3xl mt-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                    <Key className="h-5 w-5 text-gray-800 dark:text-white" />
+                    <GiHouseKeys className="h-5 w-5 text-gray-800 dark:text-white" />
                     <h1 className="text-base font-semibold text-gray-900 dark:text-white">Password Manager</h1>
                 </div>
                 <div className="flex items-center gap-3">
