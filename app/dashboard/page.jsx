@@ -1,6 +1,7 @@
 'use client';
 
 import MegaMenuDashboard from "@/components/common/MegaMenuDashboard";
+import WidgetCount from "@/components/widget/WidgetCount";
 import useAuth from '@/hooks/useAuth';
 
 export default function DashboardPage() {
@@ -8,6 +9,7 @@ export default function DashboardPage() {
     return (
         <section>
             <MegaMenuDashboard />
+            <WidgetCount />
         </section>
     );
 }

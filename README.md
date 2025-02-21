@@ -63,6 +63,14 @@ Este proyecto fue creado por [JoseNava100](https://github.com/JoseNava100).
 ![Login](assets/img/PasswordManagerLoginPage.png)
 *Interfaz de inicio de sesión para usuarios registrados. Los usuarios pueden ingresar su correo electrónico y contraseña para acceder al dashboard.*
 
-### Dashboard
-![Dashboard](assets/img/)
+### Dashboard Widget
+![Dashboard](assets/img/PasswordManagerDashboard.png)
 *Vista del dashboard después de iniciar sesión. Aquí los usuarios pueden gestionar sus tareas, ver estadísticas y acceder a otras funcionalidades de la aplicación, que proximamente seran añadidas.*
+
+### Passwords
+![Dashboard](assets/img/PasswordManagerTabla.png)
+*Vista del la gestion de contraseñas*
+
+### Generate
+![Dashboard](assets/img/PasswordManagerGenerate.png)
+*Vista del generador de contraseñas.*

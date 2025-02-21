@@ -7,7 +7,7 @@ import { IoKeyOutline } from "react-icons/io5";
 import { GiHouseKeys } from "react-icons/gi";
 import { FaChevronDown, FaChevronUp, FaUserCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import Link from 'next/link';
-import useLogout from '@/hooks/useLogout';  
+import useLogout from '@/hooks/useLogout';
 
 const navListMenuItems = [
     {
@@ -66,7 +66,7 @@ export default function MegaMenuDashboard() {
             <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                     <GiHouseKeys className="h-5 w-5 text-gray-800 dark:text-white" />
-                    <h1 className="text-base font-semibold text-gray-900 dark:text-white">Password Manager</h1>
+                    <Link href={'/dashboard'}> <h1 className="text-base font-semibold text-gray-900 dark:text-white">Password Manager</h1> </Link>
                 </div>
                 <div className="flex items-center gap-3">
                     <NavListMenu />
